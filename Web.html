@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Greeting Page</title>
 
+  <link href  = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"">
+
   <style>
     body {
-      background: linear-gradient(135deg, #74ebd5, #acb6e5);
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      background: white;
+      font-family: 'Roboto', sans-serif;
       text-align: center;
       margin: 50px;
     }
@@ -24,12 +26,12 @@
       background-color: rgb(24, 207, 24);
       color : white;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.5s;
+      transition: all ease-in 0.3s
     }
 
     button:hover{
       background-color: rgb(24, 207, 24);
-      transform: scale(1.1);
+      transform: translate(-4px);
     }
 
     @keyframes buttonClick{
@@ -38,7 +40,8 @@
       100%{transform: scale(1);}
     }
     button:active{
-      animation: buttonClick 0.3 ease-in;
+      animation: buttonClick 0.1 ease-in;
+      transform: translate(3px);
     }
 
     .fade-in {
@@ -58,7 +61,7 @@
     }
 
     body.dark-mode{
-      background: linear-gradient(135deg, #333, #555);
+      background: black;
       color:white;
     }
 
@@ -87,7 +90,7 @@
       const saved = localStorage.getItem("titi");
       if (saved != null) {
         const output = document.getElementById("output");
-        output.textContent = "Hello " + saved;
+        output.textContent = "Welcome Back " + saved;
         output.classList.add("fade-in");
       }
       else{
