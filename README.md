@@ -5,31 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Greeting Page</title>
 
+  <link href  = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  
   <style>
     body {
-      background: linear-gradient(135deg, #74ebd5, #acb6e5);
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
+      padding: 0;
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      background: white;
+      font-family: 'Roboto', sans-serif;
       text-align: center;
       margin: 50px;
     }
 
+    .container{
+      width: 100px;
+      max-width: 1200px;
+      padding: 20;
+      margin: 0 auto;
+
+
+    }
+
+    .content{
+      margin-bottom: 40px;
+    }
+
+    
+
     input, button {
       padding: 10px;
       margin: 5px;
-      border-radius: 5px;
+      border-radius: 8px;
+      margin-bottom:10px;
     }
 
    
     button{
-      background-color: rgb(24, 207, 24);
+      padding : 10px 20px;
+      background-color: #5c6bc0;
       color : white;
+      border: none;
+      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.5s;
+      transition: all ease-in 0.3s
+      
     }
 
     button:hover{
       background-color: rgb(24, 207, 24);
-      transform: scale(1.1);
+      transform: translate(-4px);
     }
 
     @keyframes buttonClick{
@@ -38,7 +67,8 @@
       100%{transform: scale(1);}
     }
     button:active{
-      animation: buttonClick 0.3 ease-in;
+      animation: buttonClick 0.1 ease-in;;
+      transform: translate(3px);
     }
 
     .fade-in {
@@ -58,7 +88,7 @@
     }
 
     body.dark-mode{
-      background: linear-gradient(135deg, #333, #555);
+      background: black;
       color:white;
     }
 
@@ -70,14 +100,49 @@
 </head>
 
 
+<div class ="titi">
+  <img src ="test.jpg" alt="Image" class = "titi-img">
+  <h2> Pogi ng gumawa  nito </h2>
+
+    <p2> Pogi sobraa</p2>
+    <br>
+    <button onclick= "dark()"> Toggle Dark Mode</button>
+</div>
+
+<style>
+  .titi{
+    box-shadow: 0px  5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    margin: 20px;
+
+  }
+
+  .titi-img{
+    width: 100%;
+    border-radius: 10%;
+
+  }
+
+  .card h2{
+    font-size: 12px
+
+
+  }
+  </style>
+
+    
+
+
+
+ 
+
 
 <body>
   <p>Hello, bro 👋</p>
 
   <input type="text" id="input" placeholder="Enter Your Name:">
-  <button onclick="btn()" id="btn">Click Me</button>
   <button onclick = "forgot()" id = for> Forget</button>
-  <button onclick= "dark()"> Toggle Dark Mode</button>
+  <button onclick="btn()"><i class="fas fa-user"></i> Click Me</button>
   
   
   <p id="output"></p>
@@ -87,7 +152,7 @@
       const saved = localStorage.getItem("titi");
       if (saved != null) {
         const output = document.getElementById("output");
-        output.textContent = "Hello " + saved;
+        output.textContent = "Welcome Back " + saved;
         output.classList.add("fade-in");
       }
       else{
